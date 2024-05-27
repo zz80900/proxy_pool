@@ -93,7 +93,8 @@ class ProxyFetcher(object):
         """ 快代理 https://www.kuaidaili.com """
         url_pattern = [
             'https://www.kuaidaili.com/free/inha/{}/',
-            'https://www.kuaidaili.com/free/intr/{}/'
+            'https://www.kuaidaili.com/free/intr/{}/',
+            'https://www.kuaidaili.com/free/fps/{}/'
         ]
         url_list = []
         for page_index in range(1, page_count + 1):
