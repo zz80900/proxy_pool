@@ -5,10 +5,5 @@ services:
     container_name: proxy_pool
     ports:
       - "5010:5010"
-    links:
-      - redis
     environment:
-      DB_CONN: "redis://biaomian@redis:6379/0"
-#  proxy_redis:
-#    image: "redis"
-#    container_name: proxy_redis
+      DB_CONN: "redis://:biaomian@redis:6379/0"
