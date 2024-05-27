@@ -169,6 +169,7 @@ class ProxyFetcher(object):
                 yield each['ip']
         except Exception as e:
             print(e)
+           
     @staticmethod
     def spiderpy():
         """ ProxyPool 爬虫代理IP池demo http://demo.spiderpy.cn/ """
