@@ -55,7 +55,8 @@ PROXY_FETCHER = [
     "freeProxy11",
     "spiderpy",
     "bzpl",
-    "zdaye"
+    "zdaye",
+    "proxyscrape"
 ]
 
 # ############# proxy validator #################

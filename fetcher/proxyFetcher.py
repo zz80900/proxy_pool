@@ -13,7 +13,6 @@
 __author__ = 'JHao'
 
 import re
-import json
 from time import sleep
 
 from util.webRequest import WebRequest
@@ -122,7 +121,7 @@ class ProxyFetcher(object):
 
     @staticmethod
     def freeProxy07():
-        """ 云代理 """
+        """ 云代理 http://www.ip3366.net/ """
         urls = ['http://www.ip3366.net/free/?stype=1', "http://www.ip3366.net/free/?stype=2"]
         for url in urls:
             r = WebRequest().get(url, timeout=10)
@@ -170,7 +169,7 @@ class ProxyFetcher(object):
                 yield each['ip']
         except Exception as e:
             print(e)
-           
+
     @staticmethod
     def spiderpy():
         """ ProxyPool 爬虫代理IP池demo http://demo.spiderpy.cn/ """
@@ -185,7 +184,6 @@ class ProxyFetcher(object):
             r = WebRequest().get("https://getproxy.bzpl.tech/get/", timeout=10)
             yield r.json['proxy']
 
-
     @staticmethod
     def zdaye(page_count=1):
         """ 站大爷 https://www.zdaye.com """
@@ -199,6 +197,17 @@ class ProxyFetcher(object):
             proxy_list = tree.xpath('.//table//tr')
             for tr in proxy_list[1:]:
                 yield ':'.join(tr.xpath('./td/text()')[0:2])
+
+    @staticmethod
+    def proxyscrape():
+        """ ProxyScrape https://zh.proxyscrape.com/free-proxy-list """
+        url = "https://api.proxyscrape.com/v3/free-proxy-list/get?request=getproxies&protocol=http&skip=0&proxy_format=protocolipport&format=json&limit=50&timeout=20000"
+        r = WebRequest().get(url, timeout=10)
+        try:
+            for each in r.json['proxies']:
+                yield ':'.join(each['ip'], each['port'])
+        except Exception as e:
+            print(e)
 
     # @staticmethod
     # def wallProxy01():
