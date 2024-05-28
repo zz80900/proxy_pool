@@ -6,4 +6,4 @@ services:
     ports:
       - "5010:5010"
     environment:
-      DB_CONN: "redis://:biaomian@redis:6379/0"
+      DB_CONN: "redis://:biaomian@172.28.80.114:26379/0"
