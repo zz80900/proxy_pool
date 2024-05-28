@@ -56,7 +56,8 @@ PROXY_FETCHER = [
     "spiderpy",
     "bzpl",
     "zdaye",
-    "proxyscrape"
+    "proxyscrape",
+    "geonode"
 ]
 
 # ############# proxy validator #################

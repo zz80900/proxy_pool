@@ -209,6 +209,20 @@ class ProxyFetcher(object):
         except Exception as e:
             print(e)
 
+    @staticmethod
+    def geonode(page_count=10):
+        """ https://proxylist.geonode.com """
+        for i in range(1, page_count):
+            url = "https://proxylist.geonode.com/api/proxy-list?limit=100&page={}&sort_by=lastChecked&sort_type=desc".format(
+                i)
+            r = WebRequest().get(url, timeout=10)
+            try:
+                for item in r.json['data']:
+                    yield ':'.join(item['ip'], item['port'])
+            except Exception as e:
+               print(e)
+
+
     # @staticmethod
     # def wallProxy01():
     #     """
