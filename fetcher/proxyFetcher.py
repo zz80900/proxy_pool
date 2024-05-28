@@ -178,6 +178,13 @@ class ProxyFetcher(object):
             r = WebRequest().get("http://demo.spiderpy.cn/get/", timeout=10)
             yield r.json['proxy']
 
+    @staticmethod
+    def bzpl():
+        """ https://getproxy.bzpl.tech/get/	 """
+        for _ in range(30):
+            r = WebRequest().get("https://getproxy.bzpl.tech/get/", timeout=10)
+            yield r.json['proxy']
+
     # @staticmethod
     # def wallProxy01():
     #     """
